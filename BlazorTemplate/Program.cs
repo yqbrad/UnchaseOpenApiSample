@@ -1,4 +1,5 @@
 using BlazorTemplate;
+using BlazorTemplate.OpenAPIService;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -9,7 +10,9 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp
     => new HttpClient
     {
-        BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
+        BaseAddress = new Uri("http://localhost:3070/")
     });
+
+builder.Services.AddScoped<IPeopleService,PeopleService>();
 
 await builder.Build().RunAsync();

@@ -1,0 +1,43 @@
+﻿@page "/People/Add"
+@using BlazorTemplate.Models
+@using BlazorTemplate.OpenAPIService
+
+<PageTitle>AddPerson</PageTitle>
+
+<h1>AddPerson</h1>
+
+<EditForm Model="@_model" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText @bind-Value="_model.FirstName" />
+    <InputText @bind-Value="_model.LastName" />
+    <InputNumber @bind-Value="_model.Age" />
+    <InputSelect @bind-Value="_model.Gender">
+        @foreach (var gender in Enum.GetValues(typeof(Gender)))
+        {
+            <option value="@gender">@gender.ToString()</option>
+        }
+    </InputSelect>
+
+    <button type="submit">Add</button>
+</EditForm>
+
+@code {
+
+    [Inject]
+    public IPeopleService Service { get; set; }
+
+    private readonly AddPersonModel _model = new();
+
+    private async Task HandleValidSubmit()
+    {
+        await Service.PeoplePostAsync(new OpenAPIService.AddPerson
+        {
+            FirstName = _model.FirstName,
+            LastName = _model.LastName,
+            Age = _model.Age,
+            Gender = _model.Gender
+        });
+    }
+}

@@ -1,9 +1,49 @@
-﻿@page "/"
+﻿@page "/People"
 
-<PageTitle>Index</PageTitle>
+@using BlazorTemplate.OpenAPIService
 
-<h1>Hello, world!</h1>
+<PageTitle>People</PageTitle>
 
-Welcome to your new app.
+<h1>People</h1>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@if (_people == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gender</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in _people)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.Gender.ToString()</td>
+                <td>@person.Age.ToString()</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    [Inject]
+    public IPeopleService Service { get; set; }
+
+    private IEnumerable<PersonDetails>? _people;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _people= await Service.PeopleGetAsync();
+    }
+}
