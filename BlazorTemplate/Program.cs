@@ -10,7 +10,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp
     => new HttpClient
     {
-        BaseAddress = new Uri("http://localhost:3070/")
+        BaseAddress = new Uri("http://localhost:5092/")
     });
 
 builder.Services.AddScoped<IPeopleService,PeopleService>();
