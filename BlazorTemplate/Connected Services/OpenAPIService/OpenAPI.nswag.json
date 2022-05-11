@@ -104,14 +104,17 @@
         "properties": {
           "firstName": {
             "type": "string",
+            "description": "نام",
             "nullable": true
           },
           "lastName": {
             "type": "string",
+            "description": "نام خانوادگی",
             "nullable": true
           },
           "age": {
             "type": "integer",
+            "description": "سن",
             "format": "int32"
           },
           "gender": {
@@ -121,6 +124,7 @@
       },
       "Gender": {
         "type": "string",
+        "description": "جنسیت",
         "enum": [
           "None",
           "Man",
@@ -137,14 +141,17 @@
           },
           "firstName": {
             "type": "string",
+            "description": "نام",
             "nullable": true
           },
           "lastName": {
             "type": "string",
+            "description": "نام خانوادگی",
             "nullable": true
           },
           "age": {
             "type": "integer",
+            "description": "سن",
             "format": "int32"
           },
           "gender": {

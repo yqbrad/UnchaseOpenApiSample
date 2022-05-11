@@ -323,12 +323,15 @@ namespace BlazorTemplate.OpenAPIService
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v13.0.1.0)")]
     public partial class AddPerson 
     {
+        /// <summary>نام</summary>
         [System.Text.Json.Serialization.JsonPropertyName("firstName")]
         public string FirstName { get; set; }
     
+        /// <summary>نام خانوادگی</summary>
         [System.Text.Json.Serialization.JsonPropertyName("lastName")]
         public string LastName { get; set; }
     
+        /// <summary>سن</summary>
         [System.Text.Json.Serialization.JsonPropertyName("age")]
         public int Age { get; set; }
     
@@ -339,6 +342,7 @@ namespace BlazorTemplate.OpenAPIService
     
     }
     
+    /// <summary>جنسیت</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.5.2.0 (Newtonsoft.Json v13.0.1.0)")]
     public enum Gender
     {
@@ -359,12 +363,15 @@ namespace BlazorTemplate.OpenAPIService
         [System.Text.Json.Serialization.JsonPropertyName("id")]
         public int Id { get; set; }
     
+        /// <summary>نام</summary>
         [System.Text.Json.Serialization.JsonPropertyName("firstName")]
         public string FirstName { get; set; }
     
+        /// <summary>نام خانوادگی</summary>
         [System.Text.Json.Serialization.JsonPropertyName("lastName")]
         public string LastName { get; set; }
     
+        /// <summary>سن</summary>
         [System.Text.Json.Serialization.JsonPropertyName("age")]
         public int Age { get; set; }
     
